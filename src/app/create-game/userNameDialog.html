@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Введите имя</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" [ngStyle]="{'width': '270px'}">
+    <input matInput [(ngModel)]="userName" required minlength="4" maxlength="20" #name="ngModel">
+    <mat-error *ngIf="name.errors?.['minlength']">
+      Имя должно быть как минимум 4 символа
+    </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button [disabled]="name.errors != null" mat-raised-button color="primary" [mat-dialog-close]="userName">Войти</button>
+</div>

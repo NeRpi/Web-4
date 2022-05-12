@@ -1,0 +1,19 @@
+<div class="horizontal">
+  <div class="team" *ngFor="let team of teams">
+    <div class="country">{{team.country.name}}</div>
+    <div class="players">
+      <ul>
+        <li *ngFor="let player of team.players">{{player}}</li>
+      </ul>
+      <div class="position-relative">
+        <div class="position-absolute end">
+          <button *ngIf="team.players.length < 4"
+                  class="btn btn-sm btn-primary" [ngStyle]="{'margin': '-28px 0px 0px 0px'}"
+          (click)="joinTeam(team)">Присоединиться</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button *ngIf="!isAddTeam" mat-button class="addTeam" (click)="openAddTeamDialog()">+</button>
+</div>
+
