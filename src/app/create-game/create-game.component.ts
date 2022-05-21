@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
+import {Clipboard} from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-create-game',
@@ -10,17 +11,26 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class CreateGameComponent implements OnInit {
   getUserName: string = '';
-  constructor(private route: ActivatedRoute,
-              private location: Location,
-              private userDialog: MatDialog) {
+  constructor(private location: Location,
+              private userDialog: MatDialog,
+              private clipboard: Clipboard,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     this.openUserNameDialog();
   }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
+  }
+
+  startGame(): void {
+    this.router.navigateByUrl('/createGame/Беларусь', {state: {id: '1'}});
+  }
+
+  copyLink(): void {
+    this.clipboard.copy('http://localhost:4200/createGame');
   }
 
   openUserNameDialog() {

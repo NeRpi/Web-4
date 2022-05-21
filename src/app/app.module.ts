@@ -10,13 +10,14 @@ import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./in-memory-data.service";
 import {HttpClientModule} from "@angular/common/http";
 import {MatDialogModule} from "@angular/material/dialog";
-import {AddTeam} from "./teams/teams.component";
+import {AddTeam, EditTeam} from "./teams/teams.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from '@angular/material/input';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import {MatInputModule} from '@angular/material/input';
     CreateGameComponent,
     TeamsComponent,
     AddTeam,
-    UserNameDialog
+    UserNameDialog,
+    EditTeam,
+    GameComponent
   ],
   imports: [
     BrowserModule,

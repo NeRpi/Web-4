@@ -39,6 +39,11 @@ export class TeamService {
     return this.http.put(this.countriesUrl, country, this.httpOptions).pipe(catchError(this.handleError<any>('updateCountry')));
   }
 
+  deleteTeam(team: Team): Observable<Team>{
+    const url = `${this.teamsUrl}/${team.id}`;
+    return this.http.delete<Team>(url, this.httpOptions).pipe(catchError(this.handleError<Team>('deleteTeam')));
+  }
+
   handleError<T>(opertion = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

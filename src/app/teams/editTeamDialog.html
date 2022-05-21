@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.country}}</h1>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" *ngIf="!data.isJoin" [mat-dialog-close]="editTeam(0)">Присоединиться</button>
+  <button mat-stroked-button color="warn" *ngIf="data.isJoin && data.isUserCountry" [mat-dialog-close]="editTeam(1)">Отсоединиться</button>
+  <button mat-raised-button color="warn" *ngIf="data.isRoot" [mat-dialog-close]="editTeam(2)">Удалить команду</button>
+  <button mat-raised-button color="accent" *ngIf="!data.isUserCountry && data.isJoin" [mat-dialog-close]="editTeam(3)">Сменить команду</button>
+</div>
+
