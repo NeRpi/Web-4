@@ -17,7 +17,10 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {MatSelectModule} from "@angular/material/select";
 import {MatInputModule} from '@angular/material/input';
-import { GameComponent } from './game/game.component';
+import {GameComponent} from './game/game.component';
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {SearchTeamPipe} from "./teams/search-team.pipe";
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { GameComponent } from './game/game.component';
     AddTeam,
     UserNameDialog,
     EditTeam,
-    GameComponent
+    GameComponent,
+    SearchTeamPipe
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { GameComponent } from './game/game.component';
     MatButtonModule,
     MatFormFieldModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MDBBootstrapModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

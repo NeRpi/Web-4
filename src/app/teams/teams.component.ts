@@ -14,6 +14,7 @@ export class TeamsComponent implements OnInit {
   @Output() getCountry = new EventEmitter<Country>();
   country: Country | undefined;
   @Input() userName: string = '';
+  @Input() soughtTeam: string = '';
 
   constructor(private teamService: TeamService, private addTeamDialog: MatDialog) {
   }
@@ -62,6 +63,14 @@ export class TeamsComponent implements OnInit {
   turnOfCountry(country: Country): void {
     country.isSelect = !country.isSelect;
     this.teamService.updateCountries(country).subscribe();
+  }
+
+  searchTeam(teamName: string, soughtTeam: string): boolean {
+    if (soughtTeam == '' || soughtTeam == null) {
+      return true;
+    }
+
+    return (teamName.indexOf(soughtTeam) !== -1);
   }
 
   openAddTeamDialog(): void {

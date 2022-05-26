@@ -1,9 +1,19 @@
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" mdbStickyHeader>
+  <mdb-navbar-brand><a class="navbar-brand" href="#">WD</a></mdb-navbar-brand>
+    <span class="ms-auto">
+        <input class="form-control mr-sm-2" [disabled]="disabledInput" type="text" [(ngModel)]="soughtTeam" maxlength="20" placeholder="Search">
+    </span>
+</mdb-navbar>
+<div style="height: 8.5vh"></div>
+
 <p>
-  <app-teams [userName]="getUserName"></app-teams>
+  <app-teams [userName]="getUserName" [soughtTeam]="soughtTeam"></app-teams>
 <div class="position-fixed bottom-0 start-0">
   <button type="button" (click)="goBack()" class="btn btn-secondary" [ngStyle]="{'margin': '10px'}">На главную</button>
 </div>
 <div class="position-fixed bottom-0 end-0">
-  <button type="button" (click)="goBack()" class="btn btn-danger" [ngStyle]="{'margin': '10px 0px'}">Удалить игру</button>
-  <button type="button" (click)="startGame()" class="btn btn-primary" [ngStyle]="{'margin': '10px'}">Начать игру</button>
+  <button type="button" (click)="goBack()" class="btn btn-danger" [ngStyle]="{'margin': '10px 0px'}">Удалить игру
+  </button>
+  <button type="button" (click)="startGame()" class="btn btn-primary" [ngStyle]="{'margin': '10px'}">Начать игру
+  </button>
 </div>

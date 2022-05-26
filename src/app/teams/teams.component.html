@@ -1,5 +1,5 @@
 <div class="horizontal">
-  <div class="team" *ngFor="let team of teams" (click)="team.players.length != 4 && openEditCountryDialog(team)">
+  <div class="team" *ngFor="let team of teams | searchTeamPipe: [searchTeam, soughtTeam]" (click)="team.players.length != 4 && openEditCountryDialog(team)">
     <div class="country">{{team.country.name}}</div>
     <div class="players">
       <ul style="list-style-type:none">

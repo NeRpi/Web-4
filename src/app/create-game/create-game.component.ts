@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {Clipboard} from '@angular/cdk/clipboard';
@@ -11,6 +11,9 @@ import {Clipboard} from '@angular/cdk/clipboard';
 })
 export class CreateGameComponent implements OnInit {
   getUserName: string = '';
+  soughtTeam: string = '';
+  disabledInput: boolean = true;
+
   constructor(private location: Location,
               private userDialog: MatDialog,
               private clipboard: Clipboard,
@@ -37,6 +40,7 @@ export class CreateGameComponent implements OnInit {
     const dialogRef = this.userDialog.open(UserNameDialog, {disableClose: true});
     dialogRef.afterClosed().subscribe(result => {
       this.getUserName = result;
+      this.disabledInput = false;
     });
   }
 }
